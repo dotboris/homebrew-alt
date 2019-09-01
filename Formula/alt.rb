@@ -4,7 +4,6 @@ class Alt < Formula
   url 'https://github.com/dotboris/alt/archive/v1.0.5.tar.gz'
   sha256 '90986955183248882584ccfe4e558ca5f610c4bcc8da8d5fe13352522f8226c5'
 
-  # depends_on "cmake" => :build
   depnds_on 'rust' => :build
 
   def install
