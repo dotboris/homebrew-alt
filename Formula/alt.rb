@@ -11,6 +11,12 @@ class Alt < Formula
     (etc/"profile.d").install "etc/profile.d/alt.sh"
   end
 
+  def caveats; <<~EOS
+    Add the following line to your ~/.bash_profile:
+      [[ -r "#{etc}/profile.d/alt.sh" ]] && . "#{etc}/profile.d/alt.sh"
+  EOS
+  end
+
   test do
     # `test do` will create, run in and delete a temporary directory.
     #
