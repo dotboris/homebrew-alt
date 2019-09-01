@@ -1,0 +1,23 @@
+version: '3.7'
+
+volumes:
+  brew-cache:
+
+services:
+  linuxbrew:
+    image: linuxbrew/brew
+    volumes:
+      - type: bind
+        source: .
+        target: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/dotboris/homebrew-alt
+        read_only: true
+
+      - type: volume
+        source: brew-cache
+        target: /root/.cache/Homebrew
+        volume:
+          nocopy: true
+
+    environment:
+      # Preview homebrew from updating the symlinked tap and messing up the repo
+      HOMEBREW_NO_AUTO_UPDATE: 1

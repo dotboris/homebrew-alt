@@ -7,9 +7,7 @@ class Alt < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--release", "--locked",
-      "--root", prefix,
-      "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
