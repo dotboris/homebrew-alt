@@ -12,8 +12,8 @@ class Alt < Formula
   end
 
   def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile:
-      [[ -r "#{etc}/profile.d/alt.sh" ]] && . "#{etc}/profile.d/alt.sh"
+    Add the following line to your ~/.bash_profile or ~/.zprofile:
+      . "#{etc}/profile.d/alt.sh"
   EOS
   end
 
