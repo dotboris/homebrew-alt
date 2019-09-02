@@ -13,6 +13,7 @@ class Alt < Formula
     (prefix/"etc/profile.d").install "etc/profile.d/alt.sh"
     (prefix/"share/fish/vendor_conf.d").install "etc/fish/conf.d/alt.fish"
 
+    (prefix/"etc/bash_completion.d").install "target/release/completion/alt.bash"
     (prefix/"share/fish/vendor_completions.d").install "target/release/completion/alt.fish"
     (prefix/"share/zsh/site-functions").install "target/release/completion/_alt"
   end
