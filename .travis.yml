@@ -10,6 +10,13 @@ matrix:
     - os: linux
     - os: osx
 
+install:
+  - |
+    if [[ "$TRAVIS_OS_NAME" == 'linux' ]]; then
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    fi
+  - brew tap dotboris/alt .
+
 script:
   - ./ci/test.py
 
