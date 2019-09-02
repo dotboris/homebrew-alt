@@ -21,7 +21,7 @@ install:
 
   # Install ourselves as a tap (by hand)
   - mkdir -p "$(brew --prefix)/Homebrew/Library/Taps/dotboris"
-  - ln -sT "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
+  - ln -s "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
   - brew tap
 
   # For some reason travis has all files setup with mode 664 instead of 644
