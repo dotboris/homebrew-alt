@@ -1,23 +1,28 @@
-class Alt < Formula
+class AltBin < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
-  url "https://github.com/dotboris/alt/archive/v1.0.6.tar.gz"
-  sha256 "7fc8ce123ae49e558c31850466135e8392ff80a942360d6b44e008576ac203fd"
-  head "https://github.com/dotboris/alt.git"
+
+  if OS.mac?
+    url "https://github.com/dotboris/alt/releases/download/v1.0.6/alt_v1.0.6_x86_64-apple-darwin.tar.gz"
+    sha256 "4e7612ee12b126859b21b5c1f42c9bdb4cfc5cbe0d1526c4054a4acf2dd89674"
+  elsif OS.linux?
+    url "https://github.com/dotboris/alt/releases/download/v1.0.6/alt_v1.0.6_x86_64-unknown-linux-musl.tar.gz"
+    sha256 "94755d240f1a2b92ef2b617013f65bfb315ac426fd5bca0a4047168b13a7e0c3"
+  end
 
   depends_on "rust" => :build
 
-  conflicts_with "alt-bin", :because => "alt-bin is the binary distribution of alt"
+  conflicts_with "alt", :because => "alt is the source distribution of alt-bin"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    (prefix/"bin").install "bin/alt"
 
     (prefix/"etc/profile.d").install "etc/profile.d/alt.sh"
     (prefix/"share/fish/vendor_conf.d").install "etc/fish/conf.d/alt.fish"
 
-    (prefix/"etc/bash_completion.d").install "target/release/completion/alt.bash"
-    (prefix/"share/fish/vendor_completions.d").install "target/release/completion/alt.fish"
-    (prefix/"share/zsh/site-functions").install "target/release/completion/_alt"
+    (prefix/"etc/bash_completion.d").install "completion/alt.bash"
+    (prefix/"share/fish/vendor_completions.d").install "completion/alt.fish"
+    (prefix/"share/zsh/site-functions").install "completion/_alt"
   end
 
   def caveats; <<~EOS
