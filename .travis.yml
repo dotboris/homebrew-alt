@@ -3,7 +3,6 @@ language: generic
 env:
   global:
     - RUST_BACKTRACE=1
-    - HOMEBREW_NO_AUTO_UPDATE=1
 
 matrix:
   fast_finish: true
@@ -20,9 +19,9 @@ install:
     fi
 
   # Install ourselves as a tap (by hand)
-  - mkdir -p "$(brew --prefix)/Homebrew/Library/Taps/dotboris"
-  - ln -s "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
-  - brew tap
+  # - mkdir -p "$(brew --prefix)/Homebrew/Library/Taps/dotboris"
+  # - ln -s "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
+  - brew tap dotboris/alt .
 
   # For some reason travis has all files setup with mode 664 instead of 644
   - chmod 644 Formula/*.rb
