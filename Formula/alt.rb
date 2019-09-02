@@ -34,18 +34,18 @@ class Alt < Formula
     (testpath/"bin/alt-testbin1").chmod 0755
     (testpath/"bin/alt-testbin2").write "#!/bin/bash\necho v2"
     (testpath/"bin/alt-testbin2").chmod 0755
-    system "#{bin}/alt def alt-testbin 1 #{testpath}/bin/alt-testbin1"
-    system "#{bin}/alt def alt-testbin 2 #{testpath}/bin/alt-testbin2"
+    system "#{bin}/alt", "def", "alt-testbin", "1", testpath/"bin/alt-testbin1"
+    system "#{bin}/alt", "def", "alt-testbin", "2", testpath/"bin/alt-testbin2"
 
     (testpath/"project-1").mkpath
     Dir.chdir(testpath/"project-1") do
-      system "#{bin}/alt use alt-testbin 1"
+      system "#{bin}/alt", "use", "alt-testbin", "1"
       assert_match /^v1$/, shell_output("alt-testbin")
     end
 
     (testpath/"project-2").mkpath
     Dir.chdir(testpath/"project-2") do
-      system "#{bin}/alt use alt-testbin 2"
+      system "#{bin}/alt", "use", "alt-testbin", "2"
       assert_match /^v2$/, shell_output("alt-testbin")
     end
   end
