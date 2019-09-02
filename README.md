@@ -10,6 +10,12 @@ If you're looking for the offical `alt` repository, please head to
 
 ```sh
 brew tap dotboris/alt
+brew install alt-bin
+```
+
+If you'd like to install from source (this takes a while) you can do:
+
+```sh
 brew install alt
 ```
 
