@@ -1,6 +1,7 @@
 class AltBin < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
+  version "1.0.6"
 
   if OS.mac?
     url "https://github.com/dotboris/alt/releases/download/v1.0.6/alt_v1.0.6_x86_64-apple-darwin.tar.gz"
