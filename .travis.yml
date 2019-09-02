@@ -27,6 +27,10 @@ install:
 script:
   - ./ci/test.py
 
+cache:
+  bundler: true
+  cargo: true
+
 branches:
   only:
     - master
