@@ -1,5 +1,7 @@
 # Homebrew tap for alt
 
+[![Build Status](https://travis-ci.com/dotboris/homebrew-alt.svg?branch=master)](https://travis-ci.com/dotboris/homebrew-alt)
+
 This repository hosts the Homebrew / Linuxbrew tap for
 [`alt`](https://github.com/dotboris/alt).
 
