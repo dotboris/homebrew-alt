@@ -9,7 +9,7 @@ class Alt < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
-    (etc/"profile.d").install "etc/profile.d/alt.sh"
+    (prefix/"etc/profile.d").install "etc/profile.d/alt.sh"
   end
 
   def caveats; <<~EOS
