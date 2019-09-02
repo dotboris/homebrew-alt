@@ -25,15 +25,28 @@ class Alt < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won"t accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test alt`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    ENV["ALT_HOME"] = testpath/"alt-home"
+    ENV["ALT_SHIM_DIR"] = testpath/"alt-shims"
+    ENV["PATH"] = "#{testpath}/alt-shims:#{ENV["PATH"]}"
+
+    (testpath/"bin").mkpath
+    (testpath/"bin/alt-testbin1").write "#!/bin/bash\necho v1"
+    (testpath/"bin/alt-testbin1").chmod 0755
+    (testpath/"bin/alt-testbin2").write "#!/bin/bash\necho v2"
+    (testpath/"bin/alt-testbin2").chmod 0755
+    system "#{bin}/alt def alt-testbin 1 #{testpath}/bin/alt-testbin1"
+    system "#{bin}/alt def alt-testbin 2 #{testpath}/bin/alt-testbin2"
+
+    (testpath/"project-1").mkpath
+    Dir.chdir(testpath/"project-1") do
+      system "#{bin}/alt use alt-testbin 1"
+      assert_match /^v1$/, shell_output("alt-testbin")
+    end
+
+    (testpath/"project-2").mkpath
+    Dir.chdir(testpath/"project-2") do
+      system "#{bin}/alt use alt-testbin 2"
+      assert_match /^v2$/, shell_output("alt-testbin")
+    end
   end
 end
