@@ -30,6 +30,9 @@ script:
 cache:
   bundler: true
   cargo: true
+  directories:
+    - $HOME/.cache/Homebrew
+    - $HOME/Library/Caches/Homebrew
 
 branches:
   only:
