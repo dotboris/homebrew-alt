@@ -18,13 +18,11 @@ install:
       eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     fi
 
-  # For some reason travis has all files setup with mode 664 instead of 644
-  - chmod 644 Formula/*.rb
-
   # Install ourselves as a tap (by hand)
-  # - mkdir -p "$(brew --prefix)/Homebrew/Library/Taps/dotboris"
-  # - ln -s "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
   - brew tap dotboris/alt .
+
+  # For some reason travis has all files setup with mode 664 instead of 644
+  - chmod 644 "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt/Formula/"*.rb
 
 script:
   - ./ci/test.py
