@@ -3,6 +3,7 @@ language: generic
 env:
   global:
     - RUST_BACKTRACE=1
+    - HOMEBREW_NO_AUTO_UPDATE=1
 
 matrix:
   fast_finish: true
