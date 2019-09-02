@@ -11,8 +11,6 @@ class AltBin < Formula
     sha256 "94755d240f1a2b92ef2b617013f65bfb315ac426fd5bca0a4047168b13a7e0c3"
   end
 
-  depends_on "rust" => :build
-
   conflicts_with "alt", :because => "alt is the source distribution of alt-bin"
 
   def install
