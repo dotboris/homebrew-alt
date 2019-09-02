@@ -3,6 +3,7 @@ class Alt < Formula
   homepage "https://github.com/dotboris/alt"
   url "https://github.com/dotboris/alt/archive/v1.0.5.tar.gz"
   sha256 "90986955183248882584ccfe4e558ca5f610c4bcc8da8d5fe13352522f8226c5"
+  head "https://github.com/dotboris/alt.git"
 
   depends_on "rust" => :build
 
