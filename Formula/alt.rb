@@ -14,6 +14,7 @@ class Alt < Formula
     (prefix/"share/fish/vendor_conf.d").install "etc/fish/conf.d/alt.fish"
 
     (prefix/"share/fish/vendor_completions.d").install "target/release/completion/alt.fish"
+    (prefix/"share/zsh/site-functions").install "target/release/completion/_alt"
   end
 
   def caveats; <<~EOS
