@@ -17,7 +17,10 @@ install:
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
       eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     fi
-  - brew tap dotboris/alt .
+
+  - mkdir -p "$(brew --prefix)/Homebrew/Library/Taps/dotboris"
+  - ln -sT "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
+  - brew tap
 
 script:
   - ./ci/test.py
