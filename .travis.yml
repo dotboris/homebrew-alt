@@ -12,15 +12,20 @@ matrix:
     - os: osx
 
 install:
+  # On linux, install Linuxbrew
   - |
     if [[ "$TRAVIS_OS_NAME" == 'linux' ]]; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
       eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     fi
 
+  # Install ourselves as a tap (by hand)
   - mkdir -p "$(brew --prefix)/Homebrew/Library/Taps/dotboris"
   - ln -sT "$(pwd)" "$(brew --prefix)/Homebrew/Library/Taps/dotboris/homebrew-alt"
   - brew tap
+
+  # For some reason travis has all files setup with mode 664 instead of 644
+  - chmod 644 Formula/*.rb
 
 script:
   - ./ci/test.py
