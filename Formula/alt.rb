@@ -9,8 +9,11 @@ class Alt < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+
     (prefix/"etc/profile.d").install "etc/profile.d/alt.sh"
     (prefix/"share/fish/vendor_conf.d").install "etc/fish/conf.d/alt.fish"
+
+    (prefix/"share/fish/vendor_completions.d").install "target/release/completion/alt.fish"
   end
 
   def caveats; <<~EOS
