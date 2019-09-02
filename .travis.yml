@@ -1,0 +1,22 @@
+language: generic
+
+env:
+  global:
+    - RUST_BACKTRACE=1
+
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+    - os: osx
+
+script:
+  - ./ci/test.py
+
+branches:
+  only:
+    - master
+
+notifications:
+  email:
+    on_success: never
