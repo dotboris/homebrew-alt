@@ -14,6 +14,7 @@ install:
   - |
     if [[ "$TRAVIS_OS_NAME" == 'linux' ]]; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+      eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     fi
   - brew tap dotboris/alt .
 
