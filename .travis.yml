@@ -18,7 +18,7 @@ install:
       eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     fi
 
-  - brew update
+  - brew update -v
 
   # Install ourselves as a tap (by hand)
   - brew tap dotboris/alt .
