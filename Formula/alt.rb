@@ -1,8 +1,8 @@
 class Alt < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
-  url "https://github.com/dotboris/alt/archive/v1.0.6.tar.gz"
-  sha256 "7fc8ce123ae49e558c31850466135e8392ff80a942360d6b44e008576ac203fd"
+  url "https://github.com/dotboris/alt/archive/v1.1.0.tar.gz"
+  sha256 "46556210433155b274ea89192797eca8e0f89032b9b848bf14cf76bf51047664"
   head "https://github.com/dotboris/alt.git"
 
   depends_on "rust" => :build
