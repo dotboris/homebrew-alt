@@ -1,14 +1,14 @@
 class AltBin < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
-  version "1.0.6"
+  version "1.1.0"
 
   if OS.mac?
-    url "https://github.com/dotboris/alt/releases/download/v1.0.6/alt_v1.0.6_x86_64-apple-darwin.tar.gz"
-    sha256 "4e7612ee12b126859b21b5c1f42c9bdb4cfc5cbe0d1526c4054a4acf2dd89674"
+    url "https://github.com/dotboris/alt/releases/download/v1.1.0/alt_v1.1.0_x86_64-apple-darwin.tar.gz"
+    sha256 "8325bf502a4b65c885461c3ab5586f3a7f1dfa523716b522a0d6c3d30f42089e"
   elsif OS.linux?
-    url "https://github.com/dotboris/alt/releases/download/v1.0.6/alt_v1.0.6_x86_64-unknown-linux-musl.tar.gz"
-    sha256 "94755d240f1a2b92ef2b617013f65bfb315ac426fd5bca0a4047168b13a7e0c3"
+    url "https://github.com/dotboris/alt/releases/download/v1.1.0/alt_v1.1.0_x86_64-unknown-linux-musl.tar.gz"
+    sha256 "4d28c57dc7bd3f88f18b5dfd16bfc99bea461e664033c68a5b225d7cc9bedad6"
   end
 
   conflicts_with "alt", :because => "alt is the source distribution of alt-bin"
