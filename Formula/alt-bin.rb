@@ -1,7 +1,6 @@
 class AltBin < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
-  version "1.2.0"
 
   if OS.mac?
     url "https://github.com/dotboris/alt/releases/download/v1.2.0/alt_v1.2.0_x86_64-apple-darwin.tar.gz"
@@ -11,7 +10,7 @@ class AltBin < Formula
     sha256 "581b08566124e555ffd180f8b56c91f0f67fc4d9b3624746cd45fc582c633d5d"
   end
 
-  conflicts_with "alt", :because => "alt is the source distribution of alt-bin"
+  conflicts_with "alt", because: "alt is the source distribution of alt-bin"
 
   def install
     (prefix/"bin").install "bin/alt"
@@ -24,10 +23,11 @@ class AltBin < Formula
     (prefix/"share/zsh/site-functions").install "completion/_alt"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile or ~/.zprofile:
-      . "#{etc}/profile.d/alt.sh"
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile or ~/.zprofile:
+        . "#{etc}/profile.d/alt.sh"
+    EOS
   end
 
   test do

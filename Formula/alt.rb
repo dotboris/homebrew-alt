@@ -7,7 +7,7 @@ class Alt < Formula
 
   depends_on "rust" => :build
 
-  conflicts_with "alt-bin", :because => "alt-bin is the binary distribution of alt"
+  conflicts_with "alt-bin", because: "alt-bin is the binary distribution of alt"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
@@ -20,10 +20,11 @@ class Alt < Formula
     (prefix/"share/zsh/site-functions").install "target/release/completion/_alt"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile or ~/.zprofile:
-      . "#{etc}/profile.d/alt.sh"
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile or ~/.zprofile:
+        . "#{etc}/profile.d/alt.sh"
+    EOS
   end
 
   test do
