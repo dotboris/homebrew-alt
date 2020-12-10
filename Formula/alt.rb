@@ -1,13 +1,13 @@
 class Alt < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
-  url "https://github.com/dotboris/alt/archive/v1.1.1.tar.gz"
-  sha256 "6b3f12f0b24a81ac7948d73e69b817fc1d45fd848d7f422032f006c93c7b9030"
+  url "https://github.com/dotboris/alt/archive/v1.2.0.tar.gz"
+  sha256 "e81ddf36b2a0612f59e3d6bc9a058b7bf536b114b16b286c7889bb95bf3e5552"
   head "https://github.com/dotboris/alt.git"
 
   depends_on "rust" => :build
 
-  conflicts_with "alt-bin", :because => "alt-bin is the binary distribution of alt"
+  conflicts_with "alt-bin", because: "alt-bin is the binary distribution of alt"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
@@ -20,10 +20,11 @@ class Alt < Formula
     (prefix/"share/zsh/site-functions").install "target/release/completion/_alt"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile or ~/.zprofile:
-      . "#{etc}/profile.d/alt.sh"
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile or ~/.zprofile:
+        . "#{etc}/profile.d/alt.sh"
+    EOS
   end
 
   test do
