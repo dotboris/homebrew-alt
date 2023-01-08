@@ -5,6 +5,12 @@ class Alt < Formula
   sha256 "8ed342bfbafb5b12a2ee9ea9d81df8bfb13795cdbb9250826f8754cbb33d02df"
   head "https://github.com/dotboris/alt.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/dotboris/alt"
+    sha256 cellar: :any_skip_relocation, monterey:     "d18de69a43e8b774fd80cd17afe6fbca2f4c8e668bddfe0012b5aa8dbb57ac40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "051db4a835419661669a26d8bb8aff25f742c58441ff72286cf87527148b50fe"
+  end
+
   depends_on "rust" => :build
 
   conflicts_with "alt-bin", because: "alt-bin is the binary distribution of alt"
