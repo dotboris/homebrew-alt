@@ -48,13 +48,13 @@ class AltBin < Formula
     (testpath/"project-1").mkpath
     Dir.chdir(testpath/"project-1") do
       system "#{bin}/alt", "use", "alt-testbin", "1"
-      assert_match /^v1$/, shell_output("alt-testbin")
+      assert_match(/^v1$/, shell_output("alt-testbin"))
     end
 
     (testpath/"project-2").mkpath
     Dir.chdir(testpath/"project-2") do
       system "#{bin}/alt", "use", "alt-testbin", "2"
-      assert_match /^v2$/, shell_output("alt-testbin")
+      assert_match(/^v2$/, shell_output("alt-testbin"))
     end
   end
 end

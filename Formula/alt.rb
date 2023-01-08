@@ -3,7 +3,7 @@ class Alt < Formula
   homepage "https://github.com/dotboris/alt"
   url "https://github.com/dotboris/alt/archive/v1.3.0.tar.gz"
   sha256 "7114e257a10ca3c932c1db3605a75cbf9d5c6bc817f65f7bbad6267132a519ae"
-  head "https://github.com/dotboris/alt.git"
+  head "https://github.com/dotboris/alt.git", branch: "main"
 
   depends_on "rust" => :build
 
@@ -45,13 +45,13 @@ class Alt < Formula
     (testpath/"project-1").mkpath
     Dir.chdir(testpath/"project-1") do
       system "#{bin}/alt", "use", "alt-testbin", "1"
-      assert_match /^v1$/, shell_output("alt-testbin")
+      assert_match(/^v1$/, shell_output("alt-testbin"))
     end
 
     (testpath/"project-2").mkpath
     Dir.chdir(testpath/"project-2") do
       system "#{bin}/alt", "use", "alt-testbin", "2"
-      assert_match /^v2$/, shell_output("alt-testbin")
+      assert_match(/^v2$/, shell_output("alt-testbin"))
     end
   end
 end
