@@ -4,8 +4,8 @@ volumes:
   brew-cache:
 
 services:
-  linuxbrew:
-    image: linuxbrew/brew
+  brew:
+    image: homebrew/brew
     volumes:
       - type: bind
         source: .
@@ -14,10 +14,15 @@ services:
 
       - type: volume
         source: brew-cache
-        target: /root/.cache/Homebrew
+        target: /home/linuxbrew/.cache/Homebrew
         volume:
           nocopy: true
 
     environment:
       # Preview homebrew from updating the symlinked tap and messing up the repo
       HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+
+    command:
+      - /bin/bash
+      - /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/dotboris/homebrew-alt/dev/setup-container.sh

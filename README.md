@@ -30,13 +30,13 @@ You can setup an isolated test environment using `docker-compose`.
 1.  Start the test environment
 
     ```sh
-    docker-compose up -d
+    docker-compose up -d --remove-orphans
     ```
 
 1.  Start a shell in the test environment
 
     ```sh
-    docker-compose run linuxbrew /bin/bash
+    docker-compose run brew /bin/bash
     ```
 
 1.  Configure linuxbrew
@@ -53,7 +53,7 @@ destroy the environment with:
 
 ```sh
 exit # exit out of the environment
-docker-compose down
+docker-compose down --remove-orphans
 ```
 
 Once that's done, you can just repeat the steps above.
