@@ -23,7 +23,7 @@ brew install alt
 
 ## Development
 
-### Testing in an isolated environment
+### Environment setup
 
 You can setup an isolated test environment using `docker-compose`.
 
@@ -57,3 +57,20 @@ docker-compose down --remove-orphans
 ```
 
 Once that's done, you can just repeat the steps above.
+
+### Testing install
+
+Once you have a setup environment, the simplest way to test is to run
+
+```sh
+brew install alt --build-from-source --verbose --debug
+```
+
+### Bumping version
+
+1.  Create a branch
+1.  Setup and enter the development environment
+1.  `brew bump-formula-pr --write-only --version {version-here} alt`
+1.  Exit the development environment
+1.  Commit
+1.  Create PR
