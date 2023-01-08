@@ -2,6 +2,11 @@ class AltBin < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
 
+  deprecate!(
+    date:    "2023-01-08",
+    because: "The alt formula now includes pre-compiled bottles which removes the requirement for a binary release",
+  )
+
   if OS.mac?
     url "https://github.com/dotboris/alt/releases/download/v1.3.0/alt_v1.3.0_x86_64-apple-darwin.tar.gz"
     sha256 "22513174f1d9ff52e92204cb5c6cabec5fb0f1e0e072ef2331e7dc077e0068a6"
