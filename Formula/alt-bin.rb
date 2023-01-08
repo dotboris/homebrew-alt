@@ -3,11 +3,11 @@ class AltBin < Formula
   homepage "https://github.com/dotboris/alt"
 
   if OS.mac?
-    url "https://github.com/dotboris/alt/releases/download/v1.2.0/alt_v1.2.0_x86_64-apple-darwin.tar.gz"
-    sha256 "3ae065cf518932d0d3c2d483f33f2ba1508b615ce0fb81b11db728413b9b4c54"
+    url "https://github.com/dotboris/alt/releases/download/v1.3.0/alt_v1.3.0_x86_64-apple-darwin.tar.gz"
+    sha256 "22513174f1d9ff52e92204cb5c6cabec5fb0f1e0e072ef2331e7dc077e0068a6"
   elsif OS.linux?
-    url "https://github.com/dotboris/alt/releases/download/v1.2.0/alt_v1.2.0_x86_64-unknown-linux-musl.tar.gz"
-    sha256 "581b08566124e555ffd180f8b56c91f0f67fc4d9b3624746cd45fc582c633d5d"
+    url "https://github.com/dotboris/alt/releases/download/v1.3.0/alt_v1.3.0_x86_64-unknown-linux-musl.tar.gz"
+    sha256 "d81d9afc8ce21671f2dac0d547de9887d28b42ed9b16a0e3da9b1964f927c429"
   end
 
   conflicts_with "alt", because: "alt is the source distribution of alt-bin"
@@ -17,6 +17,8 @@ class AltBin < Formula
 
     (prefix/"etc/profile.d").install "etc/profile.d/alt.sh"
     (prefix/"share/fish/vendor_conf.d").install "etc/fish/conf.d/alt.fish"
+
+    (prefix/"share/man/man1").install Dir["man/*.1"]
 
     (prefix/"etc/bash_completion.d").install "completion/alt.bash"
     (prefix/"share/fish/vendor_completions.d").install "completion/alt.fish"
