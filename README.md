@@ -74,3 +74,7 @@ brew install alt --build-from-source --verbose --debug
 1.  Exit the development environment
 1.  Commit
 1.  Create PR
+1.  The CI will run tests and build a bottles for you
+1.  When you're ready to merge add the `pr-pull` label to the PR. A new CI job
+    will start that will merge your changes to `main`. This process also adds
+    the bottles references to the formulas.
