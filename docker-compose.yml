@@ -10,7 +10,7 @@ services:
       - type: bind
         source: .
         target: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/dotboris/homebrew-alt
-        read_only: true
+        read_only: false
 
       - type: volume
         source: brew-cache
