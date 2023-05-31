@@ -1,8 +1,8 @@
 class Alt < Formula
   desc "Tool for switching between different versions of commands"
   homepage "https://github.com/dotboris/alt"
-  url "https://github.com/dotboris/alt/archive/v1.3.1.tar.gz"
-  sha256 "8ed342bfbafb5b12a2ee9ea9d81df8bfb13795cdbb9250826f8754cbb33d02df"
+  url "https://github.com/dotboris/alt/archive/v1.4.0.tar.gz"
+  sha256 "c334d22735ef780db2654ed50aa12336d0fa9e1ec61b5f2c30f5350a2805d7c9"
   head "https://github.com/dotboris/alt.git", branch: "main"
 
   bottle do
